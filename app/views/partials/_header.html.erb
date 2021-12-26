@@ -1,0 +1,26 @@
+<style>
+	.border_align{
+		margin: 15px;
+		padding: 10px;
+		text-decoration: none;
+    	background-color: #2f2b2b;
+    	color: white;
+    	border-radius: 4px;
+	}
+	.bg-static{
+		background-color: grey;
+	}
+</style>
+<header class="bg-static border_align" style="display: flex; justify-content: space-between;">
+	<%= link_to "Application Name", root_path, class:"bg-static" %>
+	<div>
+		<%= link_to "Add Friends",new_friend_path, class:"border_align"%>
+		<% if user_signed_in?%>
+			<%= link_to "Signout", destroy_user_session_path, method: :delete, class:"border_align" %>
+			<%= link_to "Profile Edit", edit_user_registration_path, class:"border_align" %>
+		<% else %>
+			<%= link_to "Signin", new_user_session_path, class:"border_align" %>
+			<%= link_to "Signup", new_user_registration_path, class:"border_align" %>
+		<% end %>	
+	</div>
+</header>
